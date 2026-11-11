@@ -1,9 +1,12 @@
 # brito-bot 🤖
 
-Herramienta gratis para **@brito.redes** que reemplaza dos cosas pagas:
+Herramienta gratis para **@brito.redes** que reemplaza ManyChat y Metricool:
 
 1. **Responde en público los comentarios** de los reels que vos elijas (lo que ManyChat Free dejó de hacer después de los 25 contactos por mes).
-2. **Publica reels en Instagram** sin el límite de 20 posteos por mes de Metricool.
+2. **Publica reels en Instagram**, ya o **programados para una hora**, sin el límite de 20 posteos por mes de Metricool.
+3. **Cuenta los votos A/B** de las series (DECIDÍ VOS, ¿QUÉ HARÍAS?) y guarda quién ganó.
+4. **Te manda un informe por mail cada lunes** con las vistas, el alcance, los compartidos y los guardados de cada reel.
+5. **Responde en público los comentarios de la página de Facebook «Brito».**
 
 Reglas que el bot cumple siempre:
 
@@ -91,6 +94,57 @@ Para tener en cuenta:
 
 ---
 
+## Votos
+
+Cada ~5 minutos el bot cuenta los votos de los reels que tienen `"votacion": ["A", "B"]` en `config/reels.json`. El resultado queda en [`estado/votos.json`](estado/votos.json).
+
+- Cuenta **un voto por persona**: si alguien cambia de opinión, vale el último.
+- Entiende «A», «la b», «Opción B», «El A y lo denuncio»…
+- Si un comentario no se entiende, o nombra las dos opciones, no lo cuenta.
+
+Para verlo al instante desde la Mac:
+
+```bash
+node votos.mjs
+```
+
+## Reels programados (reemplaza a Metricool)
+
+```bash
+node programar.mjs --archivo reel.mp4 --caption-archivo caption.txt --cuando "2026-11-12 21:00" --bot "DECIDÍ VOS cap 2" --votacion --anterior "DECIDÍ VOS cap 1"
+```
+
+El video queda en la cola (`docs/cola/`) y GitHub lo publica solo a esa hora de Mendoza, aunque la Mac esté apagada. GitHub se puede atrasar de 5 a 15 minutos. Cuando sale:
+
+- Con `--bot`, el bot empieza a responder sus comentarios.
+- Con `--votacion`, cuenta sus votos.
+- Con `--anterior`, el capítulo anterior pasa a responder «ya salió el capítulo siguiente».
+
+Otros comandos útiles:
+
+- `node programar.mjs --lista`: muestra qué hay en la cola.
+- `node programar.mjs --cancelar <carpeta>`: lo saca de la cola, si todavía no salió.
+
+## Informe semanal
+
+Todos los lunes a las 9 (hora de Mendoza) GitHub arma el informe y te lo manda por mail. Llega como un "issue" del repositorio. También queda guardado en la carpeta [`informes/`](informes/).
+
+Para sacarlo cuando quieras:
+
+```bash
+node metricas.mjs
+```
+
+## Facebook
+
+En `config/reels.json`, el bloque `"facebook"` maneja las respuestas en la página «Brito»:
+
+- `activo`: prende o apaga las respuestas en Facebook.
+- `dias`: cuántos días para atrás mira (posts y reels de la página).
+- `frases`: las frases que usa para responder.
+
+Igual que en Instagram, responde **solo en público** y nunca dos veces el mismo comentario.
+
 ## Si algo deja de andar
 
 - **Ver qué hizo el bot:** entrá a [Actions](https://github.com/brito-coder/brito-bot/actions). Cada vuelta muestra qué comentarios respondió.
@@ -104,7 +158,11 @@ Para tener en cuenta:
 | --- | --- |
 | `config/reels.json` | Los reels que responde el bot y sus frases. **Es el único que vas a tocar.** |
 | `comentarios.mjs` | El que responde los comentarios. |
-| `publicar.mjs` | El que publica reels. |
+| `publicar.mjs` | Publica un reel ya. |
+| `programar.mjs` / `cola.mjs` | Deja reels programados / los publica a la hora. |
+| `votos.mjs` | Cuenta los votos A/B. |
+| `metricas.mjs` | Arma el informe de métricas. |
+| `facebook.mjs` | Responde comentarios en la página de Facebook. |
 | `configurar.mjs` | Guarda el token. Se usa una sola vez. |
 | `estado/` | El registro de lo que ya se respondió. No lo toques. |
 | `CONFIGURAR-META.md` | Paso a paso para crear la app de Meta y sacar el token. |
