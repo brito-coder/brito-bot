@@ -51,7 +51,7 @@ for (const d of fs.readdirSync(COLA).sort()) {
     if (info.anterior) avisarAnterior(info.anterior);
 
     // También en la página de Facebook (si está prendido y es un reel)
-    if (tipo === 'reel' && info.facebook !== false && fbCfg.publicar_reels && process.env.FB_PAGE_ID && !r.repetido) {
+    if (tipo === 'reel' && info.facebook !== false && fbCfg.publicar_reels && process.env.FB_PAGE_ID) {
       try {
         const f = await publicarReelFacebook({ pageId: process.env.FB_PAGE_ID, token, video: urls[0], descripcion: info.caption });
         info.publicado.facebook = f.permalink;
