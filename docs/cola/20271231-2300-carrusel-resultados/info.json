@@ -1,0 +1,24 @@
+{
+  "tipo": "carrusel",
+  "cuando": "2028-01-01T02:00:00.000Z",
+  "cuando_mendoza": "2027-12-31 23:00",
+  "caption": "Prueba carrusel, no publicar",
+  "archivos": [
+    "01.jpg",
+    "02.jpg",
+    "03.mp4",
+    "04.mp4",
+    "05.mp4",
+    "06.mp4",
+    "07.mp4",
+    "08.mp4",
+    "09.mp4",
+    "10.mp4"
+  ],
+  "feed": true,
+  "facebook": false,
+  "bot": null,
+  "frases": null,
+  "votacion": null,
+  "anterior": null
+}
