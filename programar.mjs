@@ -9,7 +9,7 @@
 //     --anterior "DECIDÍ VOS cap 1" -> al capítulo anterior le cambia las respuestas a "ya salió el siguiente"
 //     --sin-facebook               -> no lo sube también a la página de Facebook
 //     --sin-feed                   -> solo en la pestaña Reels
-// Carrusel (2 a 10 slides, MP4 / JPG / PNG, en orden alfabético):
+// Carrusel (2 a 10 slides, MP4 / JPG / PNG, en orden alfabético; si hay archivos slide-*, usa solo esos):
 //   node programar.mjs --carrusel carpeta/de/slides --caption-archivo caption.txt --cuando "2026-11-12 13:00"
 // Historia (una imagen o video vertical 9:16):
 //   node programar.mjs --historia historia.png --cuando "2026-11-12 20:55"
@@ -73,7 +73,9 @@ if (!caption && tipo !== 'historia') console.log('⚠️  Sin caption: igual se 
 // Archivos de origen, en orden
 let fuentes;
 if (tipo === 'carrusel') {
-  fuentes = fs.readdirSync(origen).filter((f) => /\.(mp4|mov|jpe?g|png)$/i.test(f)).sort().map((f) => path.join(origen, f));
+  let lista = fs.readdirSync(origen).filter((f) => /\.(mp4|mov|jpe?g|png)$/i.test(f)).sort();
+  if (lista.some((f) => /^slide/i.test(f))) lista = lista.filter((f) => /^slide/i.test(f)); // ignora hoja.png, miniatura.png, etc.
+  fuentes = lista.map((f) => path.join(origen, f));
   if (fuentes.length < 2 || fuentes.length > 10) {
     console.log(`Un carrusel lleva de 2 a 10 slides; en ${origen} hay ${fuentes.length}.`);
     process.exit(1);

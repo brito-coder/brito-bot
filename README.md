@@ -6,7 +6,9 @@ Herramienta gratis para **@brito.redes** que reemplaza ManyChat y Metricool:
 2. **Publica reels en Instagram**, ya o **programados para una hora**, sin el límite de 20 posteos por mes de Metricool.
 3. **Cuenta los votos A/B** de las series (DECIDÍ VOS, ¿QUÉ HARÍAS?) y guarda quién ganó.
 4. **Te manda un informe por mail cada lunes** con las vistas, el alcance, los compartidos y los guardados de cada reel.
-5. **Responde en público los comentarios de la página de Facebook «Brito».**
+5. **Responde en público los comentarios de la página de Facebook «Brito»** y **sube los reels también ahí**.
+6. **Te avisa de posibles clientes**: si alguien comenta «precio», «info», «me interesa»…, le responde «¡Te escribo por privado!» y te llega un mail para que le escribas vos.
+7. **Programa carruseles e historias**, no solo reels.
 
 Reglas que el bot cumple siempre:
 
@@ -18,6 +20,9 @@ Reglas que el bot cumple siempre:
 ---
 
 ## Dónde corre y por qué
+
+> GitHub no respeta el "cada 5 minutos": arranca el bot más o menos una vez por hora. Por eso, cada vez que arranca, el bot se queda trabajando ~55 minutos y da una vuelta cada 5 minutos (`ciclo.mjs`).
+
 
 Corre en **GitHub Actions**, en el repositorio público [`brito-coder/brito-bot`](https://github.com/brito-coder/brito-bot).
 
@@ -125,6 +130,31 @@ Otros comandos útiles:
 - `node programar.mjs --lista`: muestra qué hay en la cola.
 - `node programar.mjs --cancelar <carpeta>`: lo saca de la cola, si todavía no salió.
 
+### Carruseles e historias
+
+```bash
+node programar.mjs --carrusel carpeta/de/slides --caption-archivo caption.txt --cuando "2026-11-12 13:00"
+node programar.mjs --historia historia.png --cuando "2026-11-12 20:55"
+```
+
+- **Carrusel:** de 2 a 10 slides (MP4, JPG o PNG), en orden alfabético. Si en la carpeta hay archivos `slide-*`, usa solo esos y deja afuera `hoja.png`, `miniatura.png`, etc.
+- **Historias:** van en vertical 9:16.
+- **PNG:** se pasan solos a JPG, que es lo que pide Instagram.
+
+### Reels en Facebook
+
+Con `"publicar_reels": true` en el bloque `facebook` de `config/reels.json`, cada reel programado se sube además como reel a la página «Brito». Si no querés que uno vaya a Facebook, agregá `--sin-facebook`.
+
+## Aviso de posibles clientes
+
+Mira los comentarios de los últimos 12 posts buscando las palabras de `"clientes" → "palabras"` en `config/reels.json`: precio, info, me interesa, presupuesto… También busca la `"palabra_clave"` de cada reel, por ejemplo `"palabra_clave": "ABIERTO"` en un reel de venta.
+
+Cuando encuentra una:
+
+1. Le responde en público una de las frases de `"clientes" → "frases"`, del estilo «¡Te escribo por privado! 📩».
+2. Te llega un **mail de GitHub** con el @, el comentario y el link.
+3. **El privado lo mandás vos.** El bot nunca manda mensajes directos.
+
 ## Informe semanal
 
 Todos los lunes a las 9 (hora de Mendoza) GitHub arma el informe y te lo manda por mail. Llega como un "issue" del repositorio. También queda guardado en la carpeta [`informes/`](informes/).
@@ -163,6 +193,8 @@ Igual que en Instagram, responde **solo en público** y nunca dos veces el mismo
 | `votos.mjs` | Cuenta los votos A/B. |
 | `metricas.mjs` | Arma el informe de métricas. |
 | `facebook.mjs` | Responde comentarios en la página de Facebook. |
+| `clientes.mjs` | Aviso de posibles clientes. |
+| `ciclo.mjs` | La vuelta completa del bot cada 5 minutos. |
 | `configurar.mjs` | Guarda el token. Se usa una sola vez. |
 | `estado/` | El registro de lo que ya se respondió. No lo toques. |
 | `CONFIGURAR-META.md` | Paso a paso para crear la app de Meta y sacar el token. |
