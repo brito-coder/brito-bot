@@ -5,6 +5,7 @@
 //   node publicar.mjs --archivo ~/Desktop/reel.mp4 --caption-archivo caption.txt
 //   Opcional: --bot "DECIDÍ VOS cap 2"  -> suma el reel nuevo a config/reels.json para que el bot responda
 //             --sin-feed                -> solo en la pestaña Reels, no en el feed
+//             --prueba                  -> hace todo menos el último paso: no publica nada
 //
 // --archivo sube el MP4 a la página pública del repo (GitHub Pages) para que Instagram lo pueda bajar.
 // Pasos de la API: 1) crear contenedor  2) esperar que Instagram procese el video  3) publicar.
@@ -57,6 +58,10 @@ if (estado !== 'FINISHED') {
   process.exit(1);
 }
 
+if (process.argv.includes('--prueba')) {
+  console.log('✅ Prueba OK: Instagram aceptó y procesó el video. No se publicó nada (el borrador vence solo en 24 h).');
+  process.exit(0);
+}
 console.log('3/3 Publicando…');
 const { id: mediaId } = await graph('POST', `${igId}/media_publish`, { creation_id: contenedor }, token);
 const info = await graph('GET', mediaId, { fields: 'permalink,shortcode' }, token);
@@ -77,7 +82,7 @@ async function subirAPages(ruta) {
   const git = (...a) => execFileSync('git', a, { cwd: RAIZ, stdio: 'inherit' });
   git('add', `docs/videos/${nombre}`);
   git('commit', '-m', `video: ${nombre}`);
-  git('pull', '--rebase', '--quiet');
+  git('pull', '--rebase', '--autostash', '--quiet');
   git('push', '--quiet');
   const remoto = execFileSync('git', ['remote', 'get-url', 'origin'], { cwd: RAIZ }).toString();
   const [, dueño, repo] = remoto.match(/github\.com[/:]([^/]+)\/([^/.\s]+)/);

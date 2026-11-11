@@ -43,4 +43,4 @@ jobs:
           git add config
           git diff --cached --quiet && exit 0
           git commit -m "reel nuevo agregado al bot"
-          git pull --rebase --quiet && git push --quiet
+          git pull --rebase --autostash --quiet && git push --quiet
