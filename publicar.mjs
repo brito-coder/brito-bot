@@ -8,13 +8,14 @@
 //             --frases-archivo f.txt    -> frases del bot para este reel (una por línea)
 //             --votacion                -> además cuenta los votos A/B de este reel
 //             --sin-feed                -> solo en la pestaña Reels, no en el feed
+//             --facebook                -> también lo sube como reel a la página de Facebook «Brito»
 //             --prueba                  -> hace todo menos el último paso: no publica nada
 //
 // --archivo sube el MP4 a la página pública del repo (GitHub Pages) para que Instagram lo pueda bajar.
 import fs from 'node:fs';
 import path from 'node:path';
 import { credenciales, RAIZ } from './lib/graph.mjs';
-import { publicarReel, agregarAlBot, git, urlPages, esperarPages } from './lib/publicar.mjs';
+import { publicarReel, publicarReelFacebook, agregarAlBot, git, urlPages, esperarPages } from './lib/publicar.mjs';
 
 const arg = (n) => {
   const i = process.argv.indexOf(n);
@@ -47,6 +48,13 @@ try {
     process.exit(1);
   }
   const r = await publicarReel({ igId, token, video, caption, feed: !flag('--sin-feed'), prueba: flag('--prueba') });
+  if (flag('--facebook') && r.mediaId && !r.repetido) {
+    try {
+      await publicarReelFacebook({ pageId: process.env.FB_PAGE_ID, token, video, descripcion: caption });
+    } catch (e) {
+      console.log(`⚠️  Instagram OK, pero Facebook falló: ${e.message}`);
+    }
+  }
   if (arg('--bot') && r.mediaId) {
     agregarAlBot({ nombre: arg('--bot'), permalink: r.permalink, mediaId: r.mediaId, frases, votacion: flag('--votacion') });
   }

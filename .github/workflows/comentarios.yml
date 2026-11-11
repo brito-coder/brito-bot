@@ -1,52 +1,30 @@
-name: brito-bot (cola, comentarios y votos)
+name: brito-bot (cola, clientes, comentarios y votos)
 on:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '*/20 * * * *'   # GitHub lo arranca más o menos cada hora; cada arranque trabaja ~55 min
   workflow_dispatch: {}
 concurrency:
-  group: brito-bot
+  group: brito-bot-ciclo
   cancel-in-progress: false
 permissions:
   contents: write
+  issues: write
 jobs:
-  responder:
+  bot:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 62
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Publicar programados
-        env:
-          IG_TOKEN: ${{ secrets.IG_TOKEN }}
-          IG_USER_ID: ${{ secrets.IG_USER_ID }}
-        run: node cola.mjs
-      - name: Responder comentarios
-        if: always()
-        env:
-          IG_TOKEN: ${{ secrets.IG_TOKEN }}
-          IG_USER_ID: ${{ secrets.IG_USER_ID }}
-        run: node comentarios.mjs
-      - name: Contar votos
-        if: always()
-        env:
-          IG_TOKEN: ${{ secrets.IG_TOKEN }}
-          IG_USER_ID: ${{ secrets.IG_USER_ID }}
-        run: node votos.mjs
-      - name: Responder en Facebook
-        if: always()
+      - name: Bot (vueltas cada 5 minutos)
         env:
           IG_TOKEN: ${{ secrets.IG_TOKEN }}
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
-        run: node facebook.mjs
-      - name: Guardar registro
-        if: always()
+          GH_TOKEN: ${{ github.token }}
         run: |
           git config user.name "brito-bot"
           git config user.email "brito-bot@users.noreply.github.com"
-          git add estado config docs/cola
-          git diff --cached --quiet && exit 0
-          git commit -m "bot: registro, votos y cola"
-          for i in 1 2 3; do git pull --rebase --autostash --quiet && git push --quiet && break; sleep 5; done
+          node ciclo.mjs --loop

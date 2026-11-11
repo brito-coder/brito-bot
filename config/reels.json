@@ -50,6 +50,39 @@
       "¡Gracias! Seguinos también en Instagram: @brito.redes 👀",
       "¡Qué bueno que te sumes! 🔥",
       "¡Gracias por pasar! 🙌 Cualquier consulta, escribinos."
+    ],
+    "publicar_reels": true
+  },
+  "clientes": {
+    "activo": true,
+    "ultimos_posts": 12,
+    "palabras": [
+      "precio",
+      "precios",
+      "cuanto sale",
+      "cuanto cuesta",
+      "cuanto cobras",
+      "cuanto cobran",
+      "que sale",
+      "info",
+      "informacion",
+      "me interesa",
+      "interesado",
+      "interesada",
+      "presupuesto",
+      "cotizacion",
+      "planes",
+      "contratar",
+      "como trabajan",
+      "como trabajas",
+      "pasame",
+      "pasa info",
+      "mas info"
+    ],
+    "frases": [
+      "¡Hola {usuario}! Te escribo por privado 📩",
+      "¡Gracias {usuario}! Ya te mando un mensaje por privado 🙌",
+      "¡Buenísimo {usuario}! Te escribo al privado y te cuento 📩"
     ]
   }
 }

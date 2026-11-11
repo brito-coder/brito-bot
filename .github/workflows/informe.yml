@@ -4,7 +4,7 @@ on:
     - cron: '0 12 * * 1'   # lunes 9:00 de Mendoza
   workflow_dispatch: {}
 concurrency:
-  group: brito-bot
+  group: brito-bot-manual
   cancel-in-progress: false
 permissions:
   contents: write
