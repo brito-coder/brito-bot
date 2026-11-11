@@ -7,6 +7,7 @@
 //             --frases-archivo f.txt     -> frases para esas respuestas (una por línea)
 //             --votacion                 -> cuenta los votos A/B de ese reel
 //             --sin-feed                 -> solo en la pestaña Reels
+//             --anterior "DECIDÍ VOS cap 1" -> cuando salga, al capítulo anterior el bot le responde "ya salió el siguiente"
 //   node programar.mjs --lista              -> muestra la cola
 //   node programar.mjs --cancelar <carpeta> -> saca un reel de la cola (si todavía no salió)
 //
@@ -81,6 +82,7 @@ const info = {
     ? fs.readFileSync(arg('--frases-archivo'), 'utf8').split('\n').map((l) => l.trim()).filter(Boolean)
     : null,
   votacion: flag('--votacion') ? ['A', 'B'] : null,
+  anterior: arg('--anterior') || null,
 };
 fs.writeFileSync(path.join(dir, 'info.json'), JSON.stringify(info, null, 2) + '\n');
 subir(`cola: ${carpeta}`);

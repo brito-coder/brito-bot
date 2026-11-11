@@ -7,19 +7,46 @@
 // Lo guarda en .env (solo en esta Mac) y en los "secrets" de GitHub, para que el bot corra solo.
 import fs from 'node:fs';
 import path from 'node:path';
-import readline from 'node:readline/promises';
 import { execFileSync } from 'node:child_process';
 import { graph, RAIZ } from './lib/graph.mjs';
 
-// La llave no se muestra en pantalla mientras la pegás (como una contraseña).
-const oculto = process.stdin.isTTY;
-if (oculto) execFileSync('stty', ['-echo'], { stdio: 'inherit' });
-const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
-const userToken = (process.env.TOKEN_USUARIO || (await rl.question('Pegá el token largo (no se va a ver) y apretá Enter: '))).trim();
-rl.close();
-if (oculto) {
-  execFileSync('stty', ['echo'], { stdio: 'inherit' });
-  console.log('\n(recibido)');
+// La llave no se muestra en pantalla mientras la pegás (como una contraseña): se ven puntitos.
+function leerOculto(pregunta) {
+  return new Promise((resolve) => {
+    process.stdout.write(pregunta);
+    const stdin = process.stdin;
+    if (!stdin.isTTY) {
+      let t = '';
+      stdin.on('data', (d) => (t += d)).on('end', () => resolve(t));
+      return;
+    }
+    let texto = '';
+    stdin.setRawMode(true);
+    stdin.resume();
+    stdin.setEncoding('utf8');
+    const alRecibir = (d) => {
+      for (const ch of d) {
+        if (ch === '\r' || ch === '\n') {
+          if (!texto.trim()) continue; // Enter sin nada pegado: sigue esperando
+          stdin.setRawMode(false);
+          stdin.pause();
+          stdin.off('data', alRecibir);
+          process.stdout.write(`\n(recibido: ${texto.trim().length} caracteres)\n`);
+          return resolve(texto);
+        }
+        if (ch === '\u0003') process.exit(1); // Ctrl-C
+        if (ch === '\u007f') { texto = texto.slice(0, -1); continue; }
+        texto += ch;
+        if (texto.length % 10 === 0) process.stdout.write('•');
+      }
+    };
+    stdin.on('data', alRecibir);
+  });
+}
+const userToken = (process.env.TOKEN_USUARIO || (await leerOculto('Pegá el token largo (se ven solo puntitos) y apretá Enter: '))).trim();
+if (!userToken.startsWith('EAA')) {
+  console.log('❌ Eso no parece una llave de Meta (tiene que empezar con EAA). Copiala de nuevo y volvé a correr: node configurar.mjs');
+  process.exit(1);
 }
 
 const dbg = await graph('GET', 'debug_token', { input_token: userToken }, userToken);
