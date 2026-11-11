@@ -1,0 +1,46 @@
+name: Publicar reel
+on:
+  workflow_dispatch:
+    inputs:
+      video:
+        description: 'Link público al .mp4'
+        required: true
+      caption:
+        description: 'Texto del reel'
+        required: false
+        default: ''
+      bot:
+        description: 'Nombre para que el bot responda sus comentarios (vacío = no)'
+        required: false
+        default: ''
+concurrency:
+  group: brito-bot
+  cancel-in-progress: false
+permissions:
+  contents: write
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Publicar
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          VIDEO: ${{ inputs.video }}
+          CAPTION: ${{ inputs.caption }}
+          BOT: ${{ inputs.bot }}
+        run: |
+          if [ -n "$BOT" ]; then node publicar.mjs --video "$VIDEO" --caption "$CAPTION" --bot "$BOT"; else node publicar.mjs --video "$VIDEO" --caption "$CAPTION"; fi
+      - name: Guardar config
+        run: |
+          git config user.name "brito-bot"
+          git config user.email "brito-bot@users.noreply.github.com"
+          git add config
+          git diff --cached --quiet && exit 0
+          git commit -m "reel nuevo agregado al bot"
+          git pull --rebase --quiet && git push --quiet

@@ -1,0 +1,33 @@
+name: Responder comentarios
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch: {}
+concurrency:
+  group: brito-bot
+  cancel-in-progress: false
+permissions:
+  contents: write
+jobs:
+  responder:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Responder
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+        run: node comentarios.mjs
+      - name: Guardar registro
+        if: always()
+        run: |
+          git config user.name "brito-bot"
+          git config user.email "brito-bot@users.noreply.github.com"
+          git add estado
+          git diff --cached --quiet && exit 0
+          git commit -m "registro de comentarios respondidos"
+          for i in 1 2 3; do git pull --rebase --quiet && git push --quiet && break; sleep 5; done
