@@ -81,7 +81,7 @@ Opciones extra, para poner dentro del bloque si las necesitás:
 node publicar.mjs --archivo ~/Desktop/reel.mp4 --caption-archivo caption.txt --bot "DECIDÍ VOS cap 2"
 ```
 
-Esto sube el video a la página pública del repositorio (GitHub Pages), espera a que Instagram lo procese y lo publica.
+Esto sube el video a la página pública del repositorio (GitHub Pages), espera a que Instagram lo procese y lo publica. Si le agregás `--prueba`, hace todo menos el último paso: sirve para chequear que el video anda sin publicar nada.
 
 Para tener en cuenta:
 
