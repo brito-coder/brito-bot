@@ -1,0 +1,24 @@
+{
+  "tipo": "reel",
+  "cuando": "2026-11-12T00:00:00.000Z",
+  "cuando_mendoza": "2026-11-11 21:00",
+  "caption": "Historia interactiva: vos decidís qué pasa con tu bodegón 🎬 Capítulo 2\n\nGanó la B: invitaste a Bruno Bocado a comer gratis y aceptó. Sábado a la 1, en vivo, con dos millones mirando… y a las 11 Chuchi tiene 40 de fiebre. Nadie más sabe hacer la milanesa. Y el de al lado sale a la vereda sonriendo 👀\n\n🅰️ La cocinás vos, con la receta de tu viejo\n🅱️ Le decís la verdad en vivo y que vuelva el lunes\n\nComentá A o B. Lo más votado pasa en el capítulo 3 (viernes a las 21 h).\nHistoria ficticia.\n\n#mendoza #emprendedoresargentinos #historiasinteractivas #comerciolocal #decidivos",
+  "archivos": [
+    "video.mp4"
+  ],
+  "feed": true,
+  "facebook": true,
+  "bot": "DECIDÍ VOS cap 2",
+  "frases": [
+    "¡Voto contado! 🗳️ El viernes a las 21 h sale el capítulo 3 con lo que eligió la mayoría.",
+    "Anotado 👀 ¿La cocinás vos o le decís la verdad? El viernes se sabe.",
+    "¡Ese voto suma! 🔥 Capítulo 3 el viernes a las 21 h.",
+    "Elegiste 😏 Veremos si la mayoría piensa igual…",
+    "¡Gracias por votar! Activá las notificaciones para no perderte el capítulo 3 🔔"
+  ],
+  "votacion": [
+    "A",
+    "B"
+  ],
+  "anterior": "DECIDÍ VOS cap 1"
+}
