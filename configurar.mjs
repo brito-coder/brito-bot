@@ -11,9 +11,16 @@ import readline from 'node:readline/promises';
 import { execFileSync } from 'node:child_process';
 import { graph, RAIZ } from './lib/graph.mjs';
 
+// La llave no se muestra en pantalla mientras la pegás (como una contraseña).
+const oculto = process.stdin.isTTY;
+if (oculto) execFileSync('stty', ['-echo'], { stdio: 'inherit' });
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
-const userToken = (process.env.TOKEN_USUARIO || (await rl.question('Pegá el token largo y apretá Enter: '))).trim();
+const userToken = (process.env.TOKEN_USUARIO || (await rl.question('Pegá el token largo (no se va a ver) y apretá Enter: '))).trim();
 rl.close();
+if (oculto) {
+  execFileSync('stty', ['echo'], { stdio: 'inherit' });
+  console.log('\n(recibido)');
+}
 
 const dbg = await graph('GET', 'debug_token', { input_token: userToken }, userToken);
 const vence = dbg.data?.expires_at ? new Date(dbg.data.expires_at * 1000) : null;
@@ -41,13 +48,14 @@ const vencePag = dbgPag.data?.expires_at;
 console.log(`✅ Página: ${pagina.name} · Instagram: @${pagina.instagram_business_account.username} (${igId})`);
 console.log(`   Token de página vence: ${vencePag ? new Date(vencePag * 1000).toLocaleDateString('es-AR') : 'nunca'}`);
 
-fs.writeFileSync(path.join(RAIZ, '.env'), `IG_TOKEN=${pageToken}\nIG_USER_ID=${igId}\n`, { mode: 0o600 });
+fs.writeFileSync(path.join(RAIZ, '.env'), `IG_TOKEN=${pageToken}\nIG_USER_ID=${igId}\nFB_PAGE_ID=${pagina.id}\n`, { mode: 0o600 });
 console.log('   Guardado en .env (solo en esta Mac, no se sube a GitHub).');
 
 try {
   execFileSync('gh', ['secret', 'set', 'IG_TOKEN', '--body', pageToken], { cwd: RAIZ, stdio: 'ignore' });
   execFileSync('gh', ['secret', 'set', 'IG_USER_ID', '--body', igId], { cwd: RAIZ, stdio: 'ignore' });
-  console.log('   Guardado también en GitHub (secrets IG_TOKEN e IG_USER_ID).');
+  execFileSync('gh', ['secret', 'set', 'FB_PAGE_ID', '--body', pagina.id], { cwd: RAIZ, stdio: 'ignore' });
+  console.log('   Guardado también en GitHub (secrets IG_TOKEN, IG_USER_ID y FB_PAGE_ID).');
 } catch {
   console.log('   (No pude guardarlo en GitHub; Claude lo hace después.)');
 }

@@ -18,6 +18,10 @@
         "¡Ese voto suma! 🔥 El capítulo 2 sale hoy a las 21 h.",
         "Elegiste 😏 Veremos si la mayoría piensa igual…",
         "¡Gracias por votar! Activá las notificaciones para no perderte cómo sigue 🔔"
+      ],
+      "votacion": [
+        "A",
+        "B"
       ]
     },
     {
@@ -30,7 +34,22 @@
         "Buena elección 😏 ¿Será la que gana? Se ve el jueves a las 21 h.",
         "¡Ese voto suma! 🔥 Activá las notificaciones para la parte 2 🔔",
         "Gracias por jugar 🙌 La parte 2 sale el jueves a las 21 h."
+      ],
+      "votacion": [
+        "A",
+        "B"
       ]
     }
-  ]
+  ],
+  "facebook": {
+    "activo": true,
+    "dias": 7,
+    "max_respuestas_por_vuelta": 20,
+    "frases": [
+      "¡Gracias por comentar! 🙌",
+      "¡Gracias! Seguinos también en Instagram: @brito.redes 👀",
+      "¡Qué bueno que te sumes! 🔥",
+      "¡Gracias por pasar! 🙌 Cualquier consulta, escribinos."
+    ]
+  }
 }

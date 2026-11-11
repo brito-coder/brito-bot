@@ -1,97 +1,56 @@
-// brito-bot · publica un reel en @brito.redes por la API oficial (sin límite de Metricool).
+// brito-bot · publica un reel YA en @brito.redes por la API oficial (sin límite de Metricool).
+// Para dejarlo programado para más tarde usá programar.mjs.
 //
 // Uso:
 //   node publicar.mjs --video https://.../reel.mp4 --caption "Texto del reel"
 //   node publicar.mjs --archivo ~/Desktop/reel.mp4 --caption-archivo caption.txt
-//   Opcional: --bot "DECIDÍ VOS cap 2"  -> suma el reel nuevo a config/reels.json para que el bot responda
+//   Opcional: --bot "DECIDÍ VOS cap 2"  -> suma el reel nuevo al bot para que responda sus comentarios
+//             --frases-archivo f.txt    -> frases del bot para este reel (una por línea)
+//             --votacion                -> además cuenta los votos A/B de este reel
 //             --sin-feed                -> solo en la pestaña Reels, no en el feed
 //             --prueba                  -> hace todo menos el último paso: no publica nada
 //
 // --archivo sube el MP4 a la página pública del repo (GitHub Pages) para que Instagram lo pueda bajar.
-// Pasos de la API: 1) crear contenedor  2) esperar que Instagram procese el video  3) publicar.
 import fs from 'node:fs';
 import path from 'node:path';
-import { execFileSync } from 'node:child_process';
-import { credenciales, graph, esperar, leerJSON, escribirJSON, RAIZ } from './lib/graph.mjs';
+import { credenciales, RAIZ } from './lib/graph.mjs';
+import { publicarReel, agregarAlBot, git, urlPages, esperarPages } from './lib/publicar.mjs';
 
-function arg(nombre) {
-  const i = process.argv.indexOf(nombre);
+const arg = (n) => {
+  const i = process.argv.indexOf(n);
   return i > -1 ? process.argv[i + 1] : undefined;
-}
+};
+const flag = (n) => process.argv.includes(n);
 
 const { token, igId } = credenciales();
 let video = arg('--video');
-const archivo = arg('--archivo');
 let caption = arg('--caption') ?? '';
 if (arg('--caption-archivo')) caption = fs.readFileSync(arg('--caption-archivo'), 'utf8').trim();
-const nombreBot = arg('--bot');
+const frases = arg('--frases-archivo')
+  ? fs.readFileSync(arg('--frases-archivo'), 'utf8').split('\n').map((l) => l.trim()).filter(Boolean)
+  : null;
 
-if (!video && archivo) video = await subirAPages(archivo);
-if (!video) {
-  console.log('Falta el video: --video <link público al .mp4> o --archivo <ruta al .mp4>');
-  process.exit(1);
-}
-
-console.log('1/3 Creando el contenedor del reel…');
-const { id: contenedor } = await graph(
-  'POST',
-  `${igId}/media`,
-  { media_type: 'REELS', video_url: video, caption, share_to_feed: !process.argv.includes('--sin-feed') },
-  token,
-);
-
-console.log('2/3 Instagram está procesando el video…');
-let estado = '';
-for (let i = 0; i < 60; i++) {
-  await esperar(10_000);
-  const s = await graph('GET', contenedor, { fields: 'status_code,status' }, token);
-  estado = s.status_code;
-  process.stdout.write(`   ${estado}\n`);
-  if (estado === 'FINISHED') break;
-  if (estado === 'ERROR' || estado === 'EXPIRED') {
-    console.log(`❌ Instagram no aceptó el video: ${s.status}`);
+try {
+  if (!video && arg('--archivo')) {
+    const nombre = path.basename(arg('--archivo')).normalize('NFD').replace(/[^\w.-]+/g, '-');
+    fs.copyFileSync(arg('--archivo'), path.join(RAIZ, 'docs/videos', nombre));
+    git('add', `docs/videos/${nombre}`);
+    git('commit', '-q', '-m', `video: ${nombre}`);
+    git('pull', '--rebase', '--autostash', '--quiet');
+    git('push', '--quiet');
+    video = `${urlPages()}/videos/${nombre}`;
+    console.log(`Subiendo a ${video} …`);
+    await esperarPages(video);
+  }
+  if (!video) {
+    console.log('Falta el video: --video <link público al .mp4> o --archivo <ruta al .mp4>');
     process.exit(1);
   }
-}
-if (estado !== 'FINISHED') {
-  console.log('❌ Pasaron 10 minutos y no terminó de procesar. Probá de nuevo más tarde.');
-  process.exit(1);
-}
-
-if (process.argv.includes('--prueba')) {
-  console.log('✅ Prueba OK: Instagram aceptó y procesó el video. No se publicó nada (el borrador vence solo en 24 h).');
-  process.exit(0);
-}
-console.log('3/3 Publicando…');
-const { id: mediaId } = await graph('POST', `${igId}/media_publish`, { creation_id: contenedor }, token);
-const info = await graph('GET', mediaId, { fields: 'permalink,shortcode' }, token);
-console.log(`✅ Publicado: ${info.permalink}`);
-
-if (nombreBot) {
-  const config = leerJSON('config/reels.json', { reels: [] });
-  const plantilla = config.frases_por_defecto || [];
-  config.reels.push({ nombre: nombreBot, link: info.permalink, media_id: mediaId, activo: true, frases: plantilla });
-  escribirJSON('config/reels.json', config);
-  console.log(`🤖 "${nombreBot}" agregado al bot con ${plantilla.length} frases por defecto.`);
-}
-
-// Copia el MP4 a docs/videos, lo sube a GitHub y espera a que quede público en GitHub Pages.
-async function subirAPages(ruta) {
-  const nombre = path.basename(ruta).normalize('NFD').replace(/[^\w.-]+/g, '-');
-  fs.copyFileSync(ruta, path.join(RAIZ, 'docs/videos', nombre));
-  const git = (...a) => execFileSync('git', a, { cwd: RAIZ, stdio: 'inherit' });
-  git('add', `docs/videos/${nombre}`);
-  git('commit', '-m', `video: ${nombre}`);
-  git('pull', '--rebase', '--autostash', '--quiet');
-  git('push', '--quiet');
-  const remoto = execFileSync('git', ['remote', 'get-url', 'origin'], { cwd: RAIZ }).toString();
-  const [, dueño, repo] = remoto.match(/github\.com[/:]([^/]+)\/([^/.\s]+)/);
-  const url = `https://${dueño.toLowerCase()}.github.io/${repo}/videos/${nombre}`;
-  console.log(`Subiendo a ${url} …`);
-  for (let i = 0; i < 40; i++) {
-    const r = await fetch(url, { method: 'HEAD' }).catch(() => null);
-    if (r?.ok) return url;
-    await esperar(15_000);
+  const r = await publicarReel({ igId, token, video, caption, feed: !flag('--sin-feed'), prueba: flag('--prueba') });
+  if (arg('--bot') && r.mediaId) {
+    agregarAlBot({ nombre: arg('--bot'), permalink: r.permalink, mediaId: r.mediaId, frases, votacion: flag('--votacion') });
   }
-  throw new Error('GitHub Pages no publicó el video a tiempo.');
+} catch (e) {
+  console.log(`❌ ${e.message}`);
+  process.exit(1);
 }
