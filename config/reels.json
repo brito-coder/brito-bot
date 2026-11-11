@@ -7,5 +7,30 @@
     "Elegiste 😏 Veremos si la mayoría piensa igual…",
     "¡Gracias por votar! Activá las notificaciones para no perderte el final 🔔"
   ],
-  "reels": []
+  "reels": [
+    {
+      "nombre": "DECIDÍ VOS cap 1",
+      "link": "https://www.instagram.com/reel/Dfik0RblMfP/",
+      "activo": true,
+      "frases": [
+        "¡Voto contado! 🗳️ Hoy miércoles a las 21 h sale el capítulo 2 con lo que eligió la mayoría.",
+        "Anotado 👀 Seguí la cuenta para ver si ganó tu opción.",
+        "¡Ese voto suma! 🔥 El capítulo 2 sale hoy a las 21 h.",
+        "Elegiste 😏 Veremos si la mayoría piensa igual…",
+        "¡Gracias por votar! Activá las notificaciones para no perderte cómo sigue 🔔"
+      ]
+    },
+    {
+      "nombre": "¿QUÉ HARÍAS? cap 1",
+      "link": "https://www.instagram.com/reel/DflJmpFiX_6/",
+      "activo": true,
+      "frases": [
+        "¡Voto contado! 🗳️ El jueves a las 21 h sale la parte 2 con lo que eligió la mayoría.",
+        "Anotado 👀 Seguí la cuenta para ver qué pasa con el del casco.",
+        "Buena elección 😏 ¿Será la que gana? Se ve el jueves a las 21 h.",
+        "¡Ese voto suma! 🔥 Activá las notificaciones para la parte 2 🔔",
+        "Gracias por jugar 🙌 La parte 2 sale el jueves a las 21 h."
+      ]
+    }
+  ]
 }
