@@ -9,7 +9,7 @@
     "ganador": "B",
     "votantes": 45,
     "comentarios_sin_voto": 7,
-    "contado": "2026-11-12T00:57:06.263Z"
+    "contado": "2026-11-12T01:02:15.395Z"
   },
   "18047293151831133": {
     "nombre": "¿QUÉ HARÍAS? cap 1",
@@ -21,18 +21,18 @@
     "ganador": "B",
     "votantes": 9,
     "comentarios_sin_voto": 2,
-    "contado": "2026-11-12T00:57:06.548Z"
+    "contado": "2026-11-12T01:02:15.951Z"
   },
   "17955259083083276": {
     "nombre": "DECIDÍ VOS cap 2",
     "link": "https://www.instagram.com/reel/DfnuhWzHyQn/",
     "total": {
       "A": 0,
-      "B": 2
+      "B": 3
     },
     "ganador": "B",
-    "votantes": 2,
+    "votantes": 3,
     "comentarios_sin_voto": 1,
-    "contado": "2026-11-12T00:57:07.032Z"
+    "contado": "2026-11-12T01:02:16.453Z"
   }
 }
