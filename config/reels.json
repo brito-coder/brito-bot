@@ -13,11 +13,9 @@
       "link": "https://www.instagram.com/reel/Dfik0RblMfP/",
       "activo": true,
       "frases": [
-        "¡Voto contado! 🗳️ Hoy miércoles a las 21 h sale el capítulo 2 con lo que eligió la mayoría.",
-        "Anotado 👀 Seguí la cuenta para ver si ganó tu opción.",
-        "¡Ese voto suma! 🔥 El capítulo 2 sale hoy a las 21 h.",
-        "Elegiste 😏 Veremos si la mayoría piensa igual…",
-        "¡Gracias por votar! Activá las notificaciones para no perderte cómo sigue 🔔"
+        "¡Ya salió el capítulo siguiente! 👀 Lo encontrás en el perfil.",
+        "Llegaste tarde a votar 😅 pero ya está la continuación en el perfil.",
+        "¡Gracias! El capítulo nuevo ya está en el perfil 🔥"
       ],
       "votacion": [
         "A",
@@ -34,6 +32,23 @@
         "Buena elección 😏 ¿Será la que gana? Se ve el jueves a las 21 h.",
         "¡Ese voto suma! 🔥 Activá las notificaciones para la parte 2 🔔",
         "Gracias por jugar 🙌 La parte 2 sale el jueves a las 21 h."
+      ],
+      "votacion": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "nombre": "DECIDÍ VOS cap 2",
+      "link": "https://www.instagram.com/reel/DfnuhWzHyQn/",
+      "media_id": "17955259083083276",
+      "activo": true,
+      "frases": [
+        "¡Voto contado! 🗳️ El viernes a las 21 h sale el capítulo 3 con lo que eligió la mayoría.",
+        "Anotado 👀 ¿La cocinás vos o le decís la verdad? El viernes se sabe.",
+        "¡Ese voto suma! 🔥 Capítulo 3 el viernes a las 21 h.",
+        "Elegiste 😏 Veremos si la mayoría piensa igual…",
+        "¡Gracias por votar! Activá las notificaciones para no perderte el capítulo 3 🔔"
       ],
       "votacion": [
         "A",
