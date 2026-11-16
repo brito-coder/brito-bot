@@ -44,15 +44,32 @@
       "media_id": "17955259083083276",
       "activo": true,
       "frases": [
-        "¡Voto contado! 🗳️ El viernes a las 21 h sale el capítulo 3 con lo que eligió la mayoría.",
-        "Anotado 👀 ¿La cocinás vos o le decís la verdad? El viernes se sabe.",
-        "¡Ese voto suma! 🔥 Capítulo 3 el viernes a las 21 h.",
+        "¡Voto contado! 🗳️ El capítulo 3 sale hoy con lo que eligió la mayoría.",
+        "Anotado 👀 ¿La cocinás vos o le decís la verdad? Hoy se sabe.",
+        "¡Ese voto suma! 🔥 El capítulo 3 sale hoy, atento al perfil.",
         "Elegiste 😏 Veremos si la mayoría piensa igual…",
         "¡Gracias por votar! Activá las notificaciones para no perderte el capítulo 3 🔔"
       ],
       "votacion": [
         "A",
         "B"
+      ]
+    },
+    {
+      "nombre": "¿QUÉ HARÍAS? cap 2",
+      "link": "https://www.instagram.com/reel/Dfs4HKglWH-/",
+      "media_id": "18035574968903346",
+      "activo": true,
+      "votacion": [
+        "A",
+        "B"
+      ],
+      "frases": [
+        "¡Voto contado! 🗳️ El capítulo 3 sale hoy con lo que eligió la mayoría.",
+        "Anotado 👀 ¿Depósito o moto? Hoy se sabe.",
+        "¡Ese voto suma! 🔥 El capítulo 3 sale hoy.",
+        "Elegiste 😏 Veremos si la mayoría piensa igual…",
+        "¡Gracias por votar! Activá las notificaciones para no perderte el capítulo 3 🔔"
       ]
     }
   ],
