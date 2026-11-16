@@ -103,12 +103,16 @@
   },
   "18111264476576317": {
     "nombre": "DECIDÍ VOS cap 3",
-    "rotacion": 0,
-    "comentarios": {}
+    "rotacion": 1,
+    "comentarios": {
+      "18071850008778000": "2026-11-16T03:47:31.866Z"
+    }
   },
   "17893736958458125": {
     "nombre": "¿QUÉ HARÍAS? cap 3",
-    "rotacion": 0,
-    "comentarios": {}
+    "rotacion": 1,
+    "comentarios": {
+      "18111716471250002": "2026-11-16T03:47:42.689Z"
+    }
   }
 }
