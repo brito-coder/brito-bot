@@ -131,8 +131,10 @@
   },
   "18444960583199533": {
     "nombre": "DECIDÍ VOS T2 cap 1",
-    "rotacion": 0,
-    "comentarios": {}
+    "rotacion": 1,
+    "comentarios": {
+      "18130417720880585": "2026-11-23T08:53:34.875Z"
+    }
   },
   "18241907533316461": {
     "nombre": "¿QUÉ HARÍAS? T2 cap 1",
