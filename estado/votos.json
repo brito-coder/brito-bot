@@ -9,7 +9,7 @@
     "ganador": "B",
     "votantes": 49,
     "comentarios_sin_voto": 6,
-    "contado": "2026-11-23T16:42:58.696Z"
+    "contado": "2026-11-23T16:47:47.630Z"
   },
   "18047293151831133": {
     "nombre": "¿QUÉ HARÍAS? cap 1",
@@ -21,7 +21,7 @@
     "ganador": "B",
     "votantes": 9,
     "comentarios_sin_voto": 2,
-    "contado": "2026-11-23T16:42:59.094Z"
+    "contado": "2026-11-23T16:47:48.168Z"
   },
   "17955259083083276": {
     "nombre": "DECIDÍ VOS cap 2",
@@ -33,7 +33,7 @@
     "ganador": "B",
     "votantes": 6,
     "comentarios_sin_voto": 2,
-    "contado": "2026-11-23T16:43:00.010Z"
+    "contado": "2026-11-23T16:47:48.582Z"
   },
   "18035574968903346": {
     "nombre": "¿QUÉ HARÍAS? cap 2",
@@ -45,7 +45,7 @@
     "ganador": "B",
     "votantes": 2,
     "comentarios_sin_voto": 1,
-    "contado": "2026-11-23T16:43:00.495Z"
+    "contado": "2026-11-23T16:47:48.996Z"
   },
   "18111264476576317": {
     "nombre": "DECIDÍ VOS cap 3",
@@ -57,7 +57,7 @@
     "ganador": "B",
     "votantes": 2,
     "comentarios_sin_voto": 1,
-    "contado": "2026-11-23T16:43:01.165Z"
+    "contado": "2026-11-23T16:47:49.436Z"
   },
   "17893736958458125": {
     "nombre": "¿QUÉ HARÍAS? cap 3",
@@ -69,19 +69,19 @@
     "ganador": "B",
     "votantes": 1,
     "comentarios_sin_voto": 1,
-    "contado": "2026-11-23T16:43:01.526Z"
+    "contado": "2026-11-23T16:47:49.754Z"
   },
   "18444960583199533": {
     "nombre": "DECIDÍ VOS T2 cap 1",
     "link": "https://www.instagram.com/reel/DgE58SMk-8F/",
     "total": {
-      "A": 6,
+      "A": 7,
       "B": 12
     },
     "ganador": "B",
-    "votantes": 18,
+    "votantes": 19,
     "comentarios_sin_voto": 8,
-    "contado": "2026-11-23T16:43:02.140Z"
+    "contado": "2026-11-23T16:47:50.725Z"
   },
   "18241907533316461": {
     "nombre": "¿QUÉ HARÍAS? T2 cap 1",
@@ -93,6 +93,6 @@
     "ganador": "A",
     "votantes": 9,
     "comentarios_sin_voto": 1,
-    "contado": "2026-11-23T16:43:02.981Z"
+    "contado": "2026-11-23T16:47:51.128Z"
   }
 }
