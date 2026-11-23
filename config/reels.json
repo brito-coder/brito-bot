@@ -148,6 +148,23 @@
         "A",
         "B"
       ]
+    },
+    {
+      "nombre": "¿QUÉ HARÍAS? T2 cap 1",
+      "link": "https://www.instagram.com/reel/DgE6-9RAWpQ/",
+      "media_id": "18241907533316461",
+      "activo": true,
+      "frases": [
+        "¡Voto contado! 🗳️ El martes a las 21 h sale el capítulo 2 con lo que eligió la mayoría.",
+        "Anotado 👀 ¿Falso o lo cobrás igual? El martes se sabe.",
+        "¡Ese voto suma! 🔥 Capítulo 2 el martes a las 21 h.",
+        "Elegiste 😏 Veremos si la mayoría piensa igual…",
+        "¡Gracias por votar! Activá las notificaciones para no perderte el capítulo 2 🔔"
+      ],
+      "votacion": [
+        "A",
+        "B"
+      ]
     }
   ],
   "facebook": {
