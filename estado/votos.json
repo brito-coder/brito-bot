@@ -9,7 +9,7 @@
     "ganador": "B",
     "votantes": 49,
     "comentarios_sin_voto": 6,
-    "contado": "2026-11-23T14:40:20.272Z"
+    "contado": "2026-11-23T14:59:54.579Z"
   },
   "18047293151831133": {
     "nombre": "¿QUÉ HARÍAS? cap 1",
@@ -21,7 +21,7 @@
     "ganador": "B",
     "votantes": 9,
     "comentarios_sin_voto": 2,
-    "contado": "2026-11-23T14:40:21.206Z"
+    "contado": "2026-11-23T14:59:55.164Z"
   },
   "17955259083083276": {
     "nombre": "DECIDÍ VOS cap 2",
@@ -33,7 +33,7 @@
     "ganador": "B",
     "votantes": 6,
     "comentarios_sin_voto": 2,
-    "contado": "2026-11-23T14:40:21.932Z"
+    "contado": "2026-11-23T14:59:55.653Z"
   },
   "18035574968903346": {
     "nombre": "¿QUÉ HARÍAS? cap 2",
@@ -45,7 +45,7 @@
     "ganador": "B",
     "votantes": 2,
     "comentarios_sin_voto": 1,
-    "contado": "2026-11-23T14:40:22.406Z"
+    "contado": "2026-11-23T14:59:56.124Z"
   },
   "18111264476576317": {
     "nombre": "DECIDÍ VOS cap 3",
@@ -57,7 +57,7 @@
     "ganador": "B",
     "votantes": 2,
     "comentarios_sin_voto": 1,
-    "contado": "2026-11-23T14:40:23.164Z"
+    "contado": "2026-11-23T14:59:56.811Z"
   },
   "17893736958458125": {
     "nombre": "¿QUÉ HARÍAS? cap 3",
@@ -69,19 +69,19 @@
     "ganador": "B",
     "votantes": 1,
     "comentarios_sin_voto": 1,
-    "contado": "2026-11-23T14:40:23.739Z"
+    "contado": "2026-11-23T14:59:57.308Z"
   },
   "18444960583199533": {
     "nombre": "DECIDÍ VOS T2 cap 1",
     "link": "https://www.instagram.com/reel/DgE58SMk-8F/",
     "total": {
-      "A": 3,
+      "A": 4,
       "B": 8
     },
     "ganador": "B",
-    "votantes": 11,
-    "comentarios_sin_voto": 6,
-    "contado": "2026-11-23T14:40:24.441Z"
+    "votantes": 12,
+    "comentarios_sin_voto": 7,
+    "contado": "2026-11-23T14:59:58.605Z"
   },
   "18241907533316461": {
     "nombre": "¿QUÉ HARÍAS? T2 cap 1",
@@ -93,6 +93,6 @@
     "ganador": "A",
     "votantes": 8,
     "comentarios_sin_voto": 1,
-    "contado": "2026-11-23T14:40:25.040Z"
+    "contado": "2026-11-23T14:59:59.092Z"
   }
 }
