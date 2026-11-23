@@ -9,7 +9,7 @@
     "ganador": "B",
     "votantes": 49,
     "comentarios_sin_voto": 6,
-    "contado": "2026-11-23T11:56:56.434Z"
+    "contado": "2026-11-23T12:20:02.871Z"
   },
   "18047293151831133": {
     "nombre": "¿QUÉ HARÍAS? cap 1",
@@ -21,7 +21,7 @@
     "ganador": "B",
     "votantes": 9,
     "comentarios_sin_voto": 2,
-    "contado": "2026-11-23T11:56:56.814Z"
+    "contado": "2026-11-23T12:20:03.402Z"
   },
   "17955259083083276": {
     "nombre": "DECIDÍ VOS cap 2",
@@ -33,7 +33,7 @@
     "ganador": "B",
     "votantes": 6,
     "comentarios_sin_voto": 2,
-    "contado": "2026-11-23T11:56:57.100Z"
+    "contado": "2026-11-23T12:20:03.754Z"
   },
   "18035574968903346": {
     "nombre": "¿QUÉ HARÍAS? cap 2",
@@ -45,7 +45,7 @@
     "ganador": "B",
     "votantes": 2,
     "comentarios_sin_voto": 1,
-    "contado": "2026-11-23T11:56:57.375Z"
+    "contado": "2026-11-23T12:20:04.256Z"
   },
   "18111264476576317": {
     "nombre": "DECIDÍ VOS cap 3",
@@ -57,7 +57,7 @@
     "ganador": "B",
     "votantes": 2,
     "comentarios_sin_voto": 1,
-    "contado": "2026-11-23T11:56:57.642Z"
+    "contado": "2026-11-23T12:20:04.769Z"
   },
   "17893736958458125": {
     "nombre": "¿QUÉ HARÍAS? cap 3",
@@ -69,19 +69,19 @@
     "ganador": "B",
     "votantes": 1,
     "comentarios_sin_voto": 1,
-    "contado": "2026-11-23T11:56:57.923Z"
+    "contado": "2026-11-23T12:20:05.123Z"
   },
   "18444960583199533": {
     "nombre": "DECIDÍ VOS T2 cap 1",
     "link": "https://www.instagram.com/reel/DgE58SMk-8F/",
     "total": {
-      "A": 0,
+      "A": 1,
       "B": 5
     },
     "ganador": "B",
-    "votantes": 5,
-    "comentarios_sin_voto": 2,
-    "contado": "2026-11-23T11:56:58.204Z"
+    "votantes": 6,
+    "comentarios_sin_voto": 3,
+    "contado": "2026-11-23T12:20:05.601Z"
   },
   "18241907533316461": {
     "nombre": "¿QUÉ HARÍAS? T2 cap 1",
@@ -93,6 +93,6 @@
     "ganador": "A",
     "votantes": 8,
     "comentarios_sin_voto": 1,
-    "contado": "2026-11-23T11:56:58.468Z"
+    "contado": "2026-11-23T12:20:06.123Z"
   }
 }
