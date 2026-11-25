@@ -1,0 +1,24 @@
+{
+  "tipo": "reel",
+  "cuando": "2026-11-26T00:00:00.000Z",
+  "cuando_mendoza": "2026-11-25 21:00",
+  "caption": "DECIDÍ VOS · TEMPORADA 2 · CAPÍTULO 2 🥐\nGanó la B: no le diste nada a Martín y llamaste a la policía. Pero Martín sí pagó… a una cuenta de Instagram con el nombre, las fotos y el logo de tu panadería. Una cuenta que no es tuya. Van 11 panaderías estafadas esta semana, y la cuenta falsa tiene más seguidores que la tuya.\n\n🅰️ La denunciás en Instagram y esperás que la den de baja\n🅱️ Subís un video escrachándola desde tu cuenta real\n\nComentá A o B. Lo más votado pasa en el capítulo 3 (viernes a las 21 h).\nHistoria ficticia.\n\n#mendoza #emprendedoresargentinos #historiasinteractivas #tudecides #panaderia",
+  "archivos": [
+    "video.mp4"
+  ],
+  "feed": true,
+  "facebook": true,
+  "bot": "DECIDÍ VOS T2 cap 2",
+  "frases": [
+    "¡Voto contado! 🗳️ El viernes a las 21 h sale el capítulo 3 con lo que eligió la mayoría.",
+    "Anotado 👀 ¿Denunciar o escrachar? El viernes se sabe.",
+    "¡Ese voto suma! 🔥 Capítulo 3 el viernes a las 21 h.",
+    "Elegiste 😏 Veremos si la mayoría piensa igual…",
+    "¡Gracias por votar! Activá las notificaciones para no perderte el capítulo 3 🔔"
+  ],
+  "votacion": [
+    "A",
+    "B"
+  ],
+  "anterior": "DECIDÍ VOS T2 cap 1"
+}
