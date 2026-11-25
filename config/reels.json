@@ -165,6 +165,19 @@
         "A",
         "B"
       ]
+    },
+    {
+      "nombre": "VENDEDORES reclutamiento",
+      "link": "https://www.instagram.com/reel/DgLiFA6BhXk/",
+      "media_id": "18075559979493409",
+      "activo": true,
+      "frases": [
+        "¡Gracias! 🙌 Toda la info y la postulación (2 minutos) están en britoredes.netlify.app/vendedores",
+        "¡Genial! Entrá a britoredes.netlify.app/vendedores: ahí ves cuánto se gana por venta y te postulás.",
+        "¡Bienvenido/a! 💼 Te postulás en britoredes.netlify.app/vendedores y te contactamos.",
+        "¡Dale! Los detalles de la comisión y el formulario están en britoredes.netlify.app/vendedores 👌",
+        "¡Gracias por comentar! Postulate en britoredes.netlify.app/vendedores (es por comisión, sin inversión)."
+      ]
     }
   ],
   "facebook": {
