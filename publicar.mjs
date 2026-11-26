@@ -9,6 +9,7 @@
 //             --votacion                -> además cuenta los votos A/B de este reel
 //             --sin-feed                -> solo en la pestaña Reels, no en el feed
 //             --facebook                -> también lo sube como reel a la página de Facebook «Brito»
+//             --portada 2.6             -> usa el cuadro de ese segundo como portada en Instagram
 //             --prueba                  -> hace todo menos el último paso: no publica nada
 //
 // --archivo sube el MP4 a la página pública del repo (GitHub Pages) para que Instagram lo pueda bajar.
@@ -47,7 +48,7 @@ try {
     console.log('Falta el video: --video <link público al .mp4> o --archivo <ruta al .mp4>');
     process.exit(1);
   }
-  const r = await publicarReel({ igId, token, video, caption, feed: !flag('--sin-feed'), prueba: flag('--prueba') });
+  const r = await publicarReel({ igId, token, video, caption, feed: !flag('--sin-feed'), prueba: flag('--prueba'), portadaMs: arg('--portada') ? Math.round(parseFloat(arg('--portada')) * 1000) : undefined });
   if (flag('--facebook') && r.mediaId && !r.repetido) {
     try {
       await publicarReelFacebook({ pageId: process.env.FB_PAGE_ID, token, video, descripcion: caption });
