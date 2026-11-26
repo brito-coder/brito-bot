@@ -138,11 +138,9 @@
       "media_id": "18444960583199533",
       "activo": true,
       "frases": [
-        "¡Voto contado! 🗳️ El miércoles a las 21 h sale el capítulo 2 con lo que eligió la mayoría.",
-        "Anotado 👀 ¿Le das las medialunas o no? El miércoles se sabe.",
-        "¡Ese voto suma! 🔥 Capítulo 2 el miércoles a las 21 h.",
-        "Elegiste 😏 Veremos si la mayoría piensa igual…",
-        "¡Gracias por votar! Activá las notificaciones para no perderte el capítulo 2 🔔"
+        "¡Ya salió el capítulo siguiente! 👀 Lo encontrás en el perfil.",
+        "Llegaste tarde a votar 😅 pero ya está la continuación en el perfil.",
+        "¡Gracias! El capítulo nuevo ya está en el perfil 🔥"
       ],
       "votacion": [
         "A",
@@ -188,6 +186,23 @@
         "¡Voto contado! 🗳️ El sábado a las 21 h sale el capítulo 3 con lo que eligió la mayoría.",
         "Anotado 👀 ¿Le regalás la compra o que suba el video? El sábado se sabe.",
         "¡Ese voto suma! 🔥 Capítulo 3 el sábado a las 21 h.",
+        "Elegiste 😏 Veremos si la mayoría piensa igual…",
+        "¡Gracias por votar! Activá las notificaciones para no perderte el capítulo 3 🔔"
+      ],
+      "votacion": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "nombre": "DECIDÍ VOS T2 cap 2",
+      "link": "https://www.instagram.com/reel/DgLxiCVBHjv/",
+      "media_id": "17977423794176923",
+      "activo": true,
+      "frases": [
+        "¡Voto contado! 🗳️ El viernes a las 21 h sale el capítulo 3 con lo que eligió la mayoría.",
+        "Anotado 👀 ¿Denunciar o escrachar? El viernes se sabe.",
+        "¡Ese voto suma! 🔥 Capítulo 3 el viernes a las 21 h.",
         "Elegiste 😏 Veremos si la mayoría piensa igual…",
         "¡Gracias por votar! Activá las notificaciones para no perderte el capítulo 3 🔔"
       ],
