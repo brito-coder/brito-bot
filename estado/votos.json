@@ -9,7 +9,7 @@
     "ganador": "B",
     "votantes": 49,
     "comentarios_sin_voto": 6,
-    "contado": "2026-11-27T21:24:01.123Z"
+    "contado": "2026-11-27T21:36:19.283Z"
   },
   "18047293151831133": {
     "nombre": "¿QUÉ HARÍAS? cap 1",
@@ -21,7 +21,7 @@
     "ganador": "B",
     "votantes": 9,
     "comentarios_sin_voto": 2,
-    "contado": "2026-11-27T21:24:01.438Z"
+    "contado": "2026-11-27T21:36:19.620Z"
   },
   "17955259083083276": {
     "nombre": "DECIDÍ VOS cap 2",
@@ -33,7 +33,7 @@
     "ganador": "B",
     "votantes": 6,
     "comentarios_sin_voto": 2,
-    "contado": "2026-11-27T21:24:01.719Z"
+    "contado": "2026-11-27T21:36:19.851Z"
   },
   "18035574968903346": {
     "nombre": "¿QUÉ HARÍAS? cap 2",
@@ -45,7 +45,7 @@
     "ganador": "B",
     "votantes": 2,
     "comentarios_sin_voto": 1,
-    "contado": "2026-11-27T21:24:01.994Z"
+    "contado": "2026-11-27T21:36:20.109Z"
   },
   "18111264476576317": {
     "nombre": "DECIDÍ VOS cap 3",
@@ -57,7 +57,7 @@
     "ganador": "B",
     "votantes": 2,
     "comentarios_sin_voto": 1,
-    "contado": "2026-11-27T21:24:02.278Z"
+    "contado": "2026-11-27T21:36:20.329Z"
   },
   "17893736958458125": {
     "nombre": "¿QUÉ HARÍAS? cap 3",
@@ -69,7 +69,7 @@
     "ganador": "B",
     "votantes": 1,
     "comentarios_sin_voto": 1,
-    "contado": "2026-11-27T21:24:02.644Z"
+    "contado": "2026-11-27T21:36:20.551Z"
   },
   "18444960583199533": {
     "nombre": "DECIDÍ VOS T2 cap 1",
@@ -81,7 +81,7 @@
     "ganador": "B",
     "votantes": 30,
     "comentarios_sin_voto": 13,
-    "contado": "2026-11-27T21:24:03.074Z"
+    "contado": "2026-11-27T21:36:20.831Z"
   },
   "18241907533316461": {
     "nombre": "¿QUÉ HARÍAS? T2 cap 1",
@@ -93,7 +93,7 @@
     "ganador": "A",
     "votantes": 11,
     "comentarios_sin_voto": 1,
-    "contado": "2026-11-27T21:24:03.378Z"
+    "contado": "2026-11-27T21:36:21.054Z"
   },
   "17983796829133442": {
     "nombre": "¿QUÉ HARÍAS? T2 cap 2",
@@ -105,7 +105,7 @@
     "ganador": "A",
     "votantes": 6,
     "comentarios_sin_voto": 1,
-    "contado": "2026-11-27T21:24:03.779Z"
+    "contado": "2026-11-27T21:36:21.323Z"
   },
   "17977423794176923": {
     "nombre": "DECIDÍ VOS T2 cap 2",
@@ -117,6 +117,6 @@
     "ganador": "B",
     "votantes": 6,
     "comentarios_sin_voto": 3,
-    "contado": "2026-11-27T21:24:04.024Z"
+    "contado": "2026-11-27T21:36:21.553Z"
   }
 }
