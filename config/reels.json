@@ -200,11 +200,9 @@
       "media_id": "17977423794176923",
       "activo": true,
       "frases": [
-        "¡Voto contado! 🗳️ El viernes a las 21 h sale el capítulo 3 con lo que eligió la mayoría.",
-        "Anotado 👀 ¿Denunciar o escrachar? El viernes se sabe.",
-        "¡Ese voto suma! 🔥 Capítulo 3 el viernes a las 21 h.",
-        "Elegiste 😏 Veremos si la mayoría piensa igual…",
-        "¡Gracias por votar! Activá las notificaciones para no perderte el capítulo 3 🔔"
+        "¡Ya salió el capítulo siguiente! 👀 Lo encontrás en el perfil.",
+        "Llegaste tarde a votar 😅 pero ya está la continuación en el perfil.",
+        "¡Gracias! El capítulo nuevo ya está en el perfil 🔥"
       ],
       "votacion": [
         "A",
@@ -222,6 +220,23 @@
         "¡Genial! La info y la postulación están en britoredes.netlify.app/vendedores, o escribí VENDER al 261 317 1717.",
         "¡Bienvenido/a! 👌 Escribinos VENDER al WhatsApp 261 317 1717 y te contamos cómo funciona.",
         "¡Gracias por comentar! Es por comisión y manejás tus horarios. Escribí VENDER al 261 317 1717 👇"
+      ]
+    },
+    {
+      "nombre": "DECIDÍ VOS T2 cap 3",
+      "link": "https://www.instagram.com/reel/DgQ7NHnheOe/",
+      "media_id": "17875571673645549",
+      "activo": true,
+      "frases": [
+        "¡Voto contado! 🗳️ El lunes a las 21 h sale el capítulo 4 con lo que eligió la mayoría.",
+        "Anotado 👀 ¿Lo encarás o le tendés la trampa? El lunes se sabe.",
+        "¡Ese voto suma! 🔥 Capítulo 4 el lunes a las 21 h.",
+        "Elegiste 😏 Veremos si la mayoría piensa igual…",
+        "¡Gracias por votar! Activá las notificaciones para no perderte el capítulo 4 🔔"
+      ],
+      "votacion": [
+        "A",
+        "B"
       ]
     }
   ],
